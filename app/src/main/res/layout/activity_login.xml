@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorPrimary"
+    tools:context="com.ariefnugraha.echat.LoginActivity">
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/colorAccent"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Nama Pengguna" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonMasuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Masuk"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="true"
+        android:background="@drawable/bg_button"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "686703098021",
+    "firebase_url": "https://e-chat-127b0.firebaseio.com",
+    "project_id": "e-chat-127b0",
+    "storage_bucket": "e-chat-127b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686703098021:android:5d37152e9f82598b",
+        "android_client_info": {
+          "package_name": "nugraha.arief.e_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686703098021-g4270j15vf08ojr6iditj66ahgub8ndc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrqoBJd7un9P5UAGs5FXgHt9k8YWAhppQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
