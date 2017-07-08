@@ -8,6 +8,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -123,33 +127,69 @@ public class MainActivity  extends AppCompatActivity {
             }
         });
 
-    }
 
-    private void request_user_name() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter Name");
-        final EditText input_field = new EditText(this);
-        builder.setView(input_field);
-        builder.setPositiveButton("OK ", new DialogInterface.OnClickListener() {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                name = input_field.getText().toString();
+            public boolean onItemLongClick(AdapterView<?> arg0, final View view, int pos, long id) {
+                // TODO Auto-generated method stub
+
+                Log.v("long clicked","pos: " + pos);
+                final AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("Peringatan");
+                alert.setMessage("Anda ingin menghapus room?");
+                alert.setPositiveButton("Ya",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+                                root.child(((TextView)view).getText().toString()).removeValue();
+                            }
+                        });
+                alert.setNegativeButton("Tidak",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+                            }
+                        });
+                alert.show();
+
+                return true;
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-                request_user_name();
-            }
-        });
-        builder.show();
-    }
 
+    }
 
     private void hideDialog() {
         if (loading.isShowing())
             loading.dismiss();
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.about, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.menuHelp) {
+            final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("About");
+            alert.setMessage("E-Chat dibuat oleh :\nArief Nugraha - 4IA12");
+            alert.setPositiveButton("Ya",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // TODO Auto-generated method stub
+                        }
+                    });
+            alert.show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onBackPressed() {

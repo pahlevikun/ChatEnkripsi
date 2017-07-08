@@ -130,7 +130,6 @@ public class ChatroomActivity extends AppCompatActivity {
 
             }
         });
-
     }
     private String chat_msg, chat_user_name;
 
@@ -143,7 +142,7 @@ public class ChatroomActivity extends AppCompatActivity {
                 chat_user_name = "Saya";
                 chat_conversation.append(chat_user_name + " : "+decrypt(chat_msg,enkripsi) +"\n\n");
             }else {
-                chat_conversation.append(chat_user_name + " : "+chat_msg +"\n\n");
+                chat_conversation.append(chat_user_name + " : "+decrypt(chat_msg,enkripsi) +"\n\n");
             }
         }
     }
