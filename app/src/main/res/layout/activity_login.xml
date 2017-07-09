@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/colorPrimary"
-    tools:context="com.ariefnugraha.echat.LoginActivity">
+    android:background="@color/colorPrimary">
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,8 +21,8 @@
             android:drawablePadding="10dp"
             android:layout_marginBottom="10dp"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/colorAccent"
-            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorWhite"
+            android:textColor="@color/colorWhite"
             android:gravity="center"
             android:textSize="23sp"
             android:fontFamily="sans-serif-condensed"

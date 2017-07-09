@@ -188,24 +188,13 @@ public class MainActivity  extends AppCompatActivity {
                     });
             alert.show();
             return true;
-        }
+        }else if(id == android.R.id.home)
+            finish();
         return super.onOptionsItemSelected(item);
     }
 
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Tekan lagi untuk keluar!", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce = false;
-            }
-        }, 2000);
+        finish();
     }
 
 }

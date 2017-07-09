@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Minimal 5 karakter!", Toast.LENGTH_SHORT).show();
                 }else{
                     dataSource.tambahProfil(new Profil(username));
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                     startActivity(intent);
                     finish();
                 }

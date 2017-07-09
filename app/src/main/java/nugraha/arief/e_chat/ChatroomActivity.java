@@ -78,7 +78,7 @@ public class ChatroomActivity extends AppCompatActivity {
         }else{
             enkripsi = Integer.parseInt(enkrip);
         }
-        Log.d("ENKRIPSI","geser "+enkripsi);
+        Log.d("COBA","geser "+enkripsi);
         dataSource = new DatabaseHandler(this);
         valuesProfil = (ArrayList<Profil>) dataSource.getAllProfils();
         for(Profil profil : valuesProfil){
@@ -103,8 +103,8 @@ public class ChatroomActivity extends AppCompatActivity {
                     temp_key = root.push().getKey();
                     root.updateChildren(map);
 
-                    Log.d("ENKRIPSI", "awal " + input_msg.getText().toString());
-                    Log.d("ENKRIPSI", "hasil " + encrypt(input_msg.getText().toString(), enkripsi));
+                    Log.d("COBA", "awal " + input_msg.getText().toString());
+                    Log.d("COBA", "hasil " + encrypt(input_msg.getText().toString(), enkripsi));
                     DatabaseReference message_root = root.child(temp_key);
                     Map<String, Object> map2 = new HashMap<String, Object>();
                     map2.put("name", user_name);
@@ -158,12 +158,13 @@ public class ChatroomActivity extends AppCompatActivity {
             Log.d("LIST CHAT "," "+id+" Total "+valuesChat.size());
             if(chat_user_name.equals(username)){
                 chat_user_name = "Saya";
-                valuesChat.add(new Chat(""+id,chat_user_name,chat_msg));
+                valuesChat.add(new Chat(""+id,chat_user_name,decrypt(chat_msg,enkripsi)));
                 chat_conversation.append(chat_user_name + " : "+decrypt(chat_msg,enkripsi) +"\n\n");
             }else {
-                valuesChat.add(new Chat(""+id,chat_user_name,chat_msg));
+                valuesChat.add(new Chat(""+id,chat_user_name,decrypt(chat_msg,enkripsi)));
                 chat_conversation.append(chat_user_name + " : "+decrypt(chat_msg,enkripsi) +"\n\n");
             }
+            Log.d("COBA"," "+decrypt(chat_msg,enkripsi));
             id = id + 1;
             adapter.notifyDataSetChanged();
         }

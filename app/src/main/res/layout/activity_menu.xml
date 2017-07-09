@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context="nugraha.arief.e_chat.MenuActivity">
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonChat"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:text="Chat"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@color/colorPrimaryDark"/>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonTentang"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Tentang"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@color/colorPrimaryDark"/>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonKeluar"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Keluar"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@color/colorPrimaryDark"/>
+</LinearLayout>

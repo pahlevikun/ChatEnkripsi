@@ -15,17 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:padding="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/bg_chats_left">
         <TextView
             android:id="@+id/textName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:layout_marginTop="5dp"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
             android:text="@android:string/selectTextMode"/>
@@ -34,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
             android:textSize="13sp"
             android:text="@android:string/selectTextMode"/>
     </LinearLayout>
