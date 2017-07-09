@@ -4,6 +4,7 @@ package nugraha.arief.e_chat;
  * Created by farhan on 4/9/17.
  */
 
+import android.content.Context;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +32,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import nugraha.arief.e_chat.adapter.ChatAdapter;
 import nugraha.arief.e_chat.database.DatabaseHandler;
+import nugraha.arief.e_chat.pojo.Chat;
 import nugraha.arief.e_chat.pojo.Profil;
 
 public class ChatroomActivity extends AppCompatActivity {
@@ -38,11 +43,14 @@ public class ChatroomActivity extends AppCompatActivity {
     private EditText input_msg;
     private TextView chat_conversation;
     private String user_name ,room_name, enkrip,username;
-    private int enkripsi;
+    private int enkripsi, id = 0;
     private DatabaseReference root;
     private String temp_key;
     private DatabaseHandler dataSource;
     private ArrayList<Profil> valuesProfil;
+    private ArrayList<Chat> valuesChat = new ArrayList<>();
+    private ListView listView;
+    private ChatAdapter adapter;
 
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz,-+=*/,.?!1234567890:@#$%^&*()<> ";
 
@@ -58,6 +66,8 @@ public class ChatroomActivity extends AppCompatActivity {
         btn_send_msg = (Button)findViewById(R.id.button);
         input_msg = (EditText)findViewById(R.id.editText);
         chat_conversation = (TextView)findViewById(R.id.textView);
+        listView = (ListView) findViewById(R.id.listViewChat);
+
         user_name = getIntent().getExtras().get("user_name").toString();
         room_name = getIntent().getExtras().get("room_name").toString();
         enkrip = getIntent().getExtras().get("enkripsi").toString();
@@ -68,7 +78,7 @@ public class ChatroomActivity extends AppCompatActivity {
         }else{
             enkripsi = Integer.parseInt(enkrip);
         }
-        Log.d("ENKRIPSI","geser"+enkripsi);
+        Log.d("ENKRIPSI","geser "+enkripsi);
         dataSource = new DatabaseHandler(this);
         valuesProfil = (ArrayList<Profil>) dataSource.getAllProfils();
         for(Profil profil : valuesProfil){
@@ -76,6 +86,11 @@ public class ChatroomActivity extends AppCompatActivity {
         }
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name);
+
+        adapter = new ChatAdapter(ChatroomActivity.this, valuesChat);
+        listView.setAdapter(adapter);
+        listView.setDividerHeight(0);
+        adapter.notifyDataSetChanged();
 
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +111,9 @@ public class ChatroomActivity extends AppCompatActivity {
                     map2.put("msg", encrypt(input_msg.getText().toString(), enkripsi));
                     message_root.updateChildren(map2);
                     input_msg.setText("");
-                    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+                    InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }
 
             }
@@ -138,12 +155,17 @@ public class ChatroomActivity extends AppCompatActivity {
         while (i.hasNext()) {
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
-            if(username.equals(chat_user_name)){
+            Log.d("LIST CHAT "," "+id+" Total "+valuesChat.size());
+            if(chat_user_name.equals(username)){
                 chat_user_name = "Saya";
+                valuesChat.add(new Chat(""+id,chat_user_name,chat_msg));
                 chat_conversation.append(chat_user_name + " : "+decrypt(chat_msg,enkripsi) +"\n\n");
             }else {
+                valuesChat.add(new Chat(""+id,chat_user_name,chat_msg));
                 chat_conversation.append(chat_user_name + " : "+decrypt(chat_msg,enkripsi) +"\n\n");
             }
+            id = id + 1;
+            adapter.notifyDataSetChanged();
         }
     }
 

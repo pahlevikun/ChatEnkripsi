@@ -53,6 +53,7 @@ public class EnkripActivity extends AppCompatActivity {
                         enkrip3=Integer.parseInt(etEnkrip3.getText().toString());
 
                         hasil = chaos(enkrip,enkrip2,enkrip3);
+                        Log.d("COBA ",""+chaos(enkrip,enkrip2,enkrip3));
                         Float fObj = new Float(hasil);
                         boolean b2 = fObj.isInfinite();
                         boolean b3 = fObj.isNaN();
@@ -83,13 +84,12 @@ public class EnkripActivity extends AppCompatActivity {
         }
         hasil = x0 * 1000000;
         hasil = hasil % 59;
-        /*if(hasil==0){
-            hasil = x0-1;
-        }*/
+
         if(hasil<0) {
             hasil = hasil * -1;
         }
 
+        hasil = Math.round(hasil);
         return hasil;
     }
 
