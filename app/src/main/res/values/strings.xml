@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">E-Chat</string>
+
+    <string name="rumus">Untuk menggunakan enkripsi, dibutuhkan sebuah rumus yang berperan sebagai pembangkit untuk nilai yang digunakan pad
+    enkripsi yang digunakan. Untuk itu, secara sistematis digunakan persaam logistik sebagai berikut :
+    \n
+    \n
+    Xn+1 = r Xn(1 - Xn)
+    \n
+    \nDimana :
+    \nX adalah bilangan diantara 0 dan 1
+    \nr adalah bilangan bulat yang merepresentasikan kombinasi antara nilai dan produksi antara 1 sampai dengan 4</string>
 </resources>

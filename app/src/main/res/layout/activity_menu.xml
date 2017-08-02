@@ -27,6 +27,18 @@
         android:fontFamily="sans-serif-condensed"
         android:background="@color/colorPrimaryDark"/>
     <android.support.v7.widget.AppCompatButton
+        android:id="@+id/buttonRumus"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Metode Chaos"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@color/colorPrimaryDark"/>
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/buttonTentang"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
