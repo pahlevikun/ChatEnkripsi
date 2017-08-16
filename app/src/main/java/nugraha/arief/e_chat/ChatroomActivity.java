@@ -52,7 +52,7 @@ public class ChatroomActivity extends AppCompatActivity {
     private ListView listView;
     private ChatAdapter adapter;
 
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz,-+=*/,.?!1234567890:@#$%^&*()<> ";
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz,-+=*/,.?!1234567890:@#$%^&()<> ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

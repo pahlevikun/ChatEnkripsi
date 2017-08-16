@@ -83,7 +83,7 @@ public class EnkripActivity extends AppCompatActivity {
             Log.d("COBA PUTAR","Putaran ke-"+i+" = "+x0);
         }
         hasil = x0 * 1000000;
-        hasil = hasil % 59;
+        hasil = hasil % 58;
 
         if(hasil<0) {
             hasil = hasil * -1;

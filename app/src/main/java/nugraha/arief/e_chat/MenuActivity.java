@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button btChat, btKeluar, btTentang;
+    private Button btChat, btKeluar, btTentang, btChaos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,15 @@ public class MenuActivity extends AppCompatActivity {
         btChat = (Button) findViewById(R.id.buttonChat);
         btKeluar = (Button) findViewById(R.id.buttonKeluar);
         btTentang = (Button) findViewById(R.id.buttonTentang);
+        btChaos = (Button) findViewById(R.id.buttonRumus);
+
+        btChaos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, ChaosActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btChat.setOnClickListener(new View.OnClickListener() {
             @Override
