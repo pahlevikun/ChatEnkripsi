@@ -52,7 +52,7 @@ public class ChatroomActivity extends AppCompatActivity {
     private ListView listView;
     private ChatAdapter adapter;
 
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz,-+=*/,.?!1234567890:@#$%^&()<> ";
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz1234567890 ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,7 +177,7 @@ public class ChatroomActivity extends AppCompatActivity {
         for (int i = 0; i < plainText.length(); i++) {
             //try {
                 int charPosition = ALPHABET.indexOf(plainText.charAt(i));
-                int keyVal = (shiftKey + charPosition) % 59;
+                int keyVal = (shiftKey + charPosition) % 37;
                 char replaceVal = ALPHABET.charAt(keyVal);
                 cipherText += replaceVal;
             //}catch (Exception e){
@@ -194,7 +194,7 @@ public class ChatroomActivity extends AppCompatActivity {
         for (int i = 0; i < cipherText.length(); i++) {
             //try {
                 int charPosition = ALPHABET.indexOf(cipherText.charAt(i));
-                int keyVal = (charPosition - shiftKey) % 59;
+                int keyVal = (charPosition - shiftKey) % 37;
                 if (keyVal < 0) {
                     keyVal = ALPHABET.length() + keyVal;
                 }
